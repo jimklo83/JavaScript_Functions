@@ -89,3 +89,36 @@ triangle(3, 3, 3,)
 triangle(2, 2, 3)
 triangle(2, 3, 4)
 triangle(2, 2, 4)
+
+// Exercise 5 Section
+console.log("EXERCISE 5:\n==========\n");
+
+function cellPhone(planLimit, day, usage) {
+    let remaining = 30 - day
+    let dailyUsage = (usage / day).toFixed(3)
+    let recommendedUsage = (planLimit / 30).toFixed(3)
+    let adjustedUsage = ((planLimit - dailyUsage * day) / remaining).toFixed(3)
+    let overage = (dailyUsage * 30 - planLimit).toFixed(2)
+
+    console.log(`${day} days used, ${remaining} days remaining.`)
+    console.log(`Average daily usage: ${recommendedUsage}`)
+
+    if (overage > 0) {
+        console.log(`You are EXCEEDING your average daily use (${dailyUsage} GB/day),`)
+        console.log(`continuing this high usage, you'll exceed your data plan by`)
+        console.log(`${overage} GB`)
+        console.log(`To stay below your data plan, use no more than ${adjustedUsage} GB/day.`)
+    } else if (overage < 0) {
+        console.log(`You are BELOW your daily use allowance (${dailyUsage} GB/day),`)
+        console.log(`continuing this low usage, you'll be under your data plan by`)
+        console.log(`${overage} GB`)
+        console.log(`To maximize your data plan, use ${adjustedUsage} GB/day for this month.`)
+    } else {
+        console.log(`You are at your average daily use allowance (${dailyUsage} GB/day),`)
+        console.log(`Keep using ${dailyUsage} GB/day.`)
+    }
+}
+
+cellPhone(100, 15, 56)
+cellPhone(100, 20, 40)
+
