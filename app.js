@@ -103,12 +103,12 @@ function cellPhone(planLimit, day, usage) {
     console.log(`${day} days used, ${remaining} days remaining.`)
     console.log(`Average daily usage: ${recommendedUsage}`)
 
-    if (overage > 0) {
+    if (overage > .5) {
         console.log(`You are EXCEEDING your average daily use (${dailyUsage} GB/day),`)
         console.log(`continuing this high usage, you'll exceed your data plan by`)
         console.log(`${overage} GB`)
         console.log(`To stay below your data plan, use no more than ${adjustedUsage} GB/day.`)
-    } else if (overage < 0) {
+    } else if (overage < -.5) {
         console.log(`You are BELOW your daily use allowance (${dailyUsage} GB/day),`)
         console.log(`continuing this low usage, you'll be under your data plan by`)
         console.log(`${overage} GB`)
@@ -121,4 +121,5 @@ function cellPhone(planLimit, day, usage) {
 
 cellPhone(100, 15, 56)
 cellPhone(100, 20, 40)
+cellPhone(100, 15, 50)
 
